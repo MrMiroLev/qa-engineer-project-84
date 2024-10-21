@@ -52,3 +52,312 @@
     В выпадающем списке есть пустой вариант для сброса фильтра
   actual-result: |
     В выпадающем списке нет пустого варианта для сброса фильтра
+
+- summary: |
+    Фильтр по производителям не выводит полный список производителей каталога
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажать кнопку "Next"
+  expected-result: |
+    В списке множественного выбора выводится полный список производителей товаров на любой странице каталога
+  actual-result: |
+    В списке множественного выбора выводится список производителей только текущей страницы
+
+- summary: |
+    Фильтрация товаров по диапазону цен работает неправильно
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Ввести 0.80 в левое поле Price
+    3. Ввести 0.82 в правое поле Price
+  expected-result: |
+    Выводится товар "Green Chili Pepper"
+  actual-result: |
+    Выводится сообщение "Nothing found!"
+
+- summary: |
+    В поля Price можно вводить отрицательные числа
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Ввести -100 в левое поле Price
+    3. Ввести -1 в правое поле Price
+  expected-result: |
+    Ничего не происходит
+  actual-result: |
+    В поля Price введены отрицательные числа
+
+- summary: |
+    В поля Price можно вводить нечисловые значения
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Ввести "abc" в левое поле Price
+    3. Ввести "DEF#! в правое поле Price
+  expected-result: |
+    Ничего не происходит
+  actual-result: |
+    В поля Price введены нечисловые значения
+
+- summary: |
+    В поля price можно вводить числовые значения с более чем 2 знаками после запятой
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Ввести 0.011 в левое поле Price
+    3. Ввести 0.999 в правое поле Price
+  expected-result: |
+    В левом поле Price значение 0.01, а в правом - 0.99
+  actual-result: |
+    В левом поле Price значение 0.011, а в правом - 0.999
+
+- summary: |
+    Кнопка "Hexlet Store" в шапке не работает
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти по ссылке https://hexlet-products-store.vercel.app/cart
+    2. Нажать на "Hexlet Store"
+  expected-result: |
+    Происходит переход на страницу каталога
+  actual-result: |
+    Ничего не происходит
+
+- summary: |
+    Можно добавить товар в корзину, которого нет в наличии, на странице о товаре
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти по ссылке https://hexlet-products-store.vercel.app/
+    2. Снять галочку у "In Stock"
+    3. Нажать кнопку "Next"
+    4. Выбрать "Lemon" или "Bamboo Spatula"
+    5. Нажать кнопку "Cart"
+  expected-result: |
+    Товар не был добавлен
+  actual-result: |
+    Товар в корзине
+
+- summary: |
+    Данные о заказе не отправляются на сервер (status 500)
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Добавить любой товар в корзину
+    3. Нажать кнопку "Cart"
+    4. Открыть вкладку Network в DevTools
+    5. Нажать кнопку "Checkout" в корзине
+  expected-result: |
+    Данные о заказе отправлены на сервер (status 200)
+  actual-result: |
+    Данные о заказе не отправлены на сервер (status 500)
+
+- summary: |
+    Корзина не становится пустой после оформления заказа
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Добавить любой товар в корзину
+    3. Нажать кнопку "Cart"
+    4. Нажать кнопку "Checkout" в корзине
+  expected-result: |
+    Корзина стала пустой
+  actual-result: |
+    Корзина не опустела
+
+- summary: |
+    Не происходит перехода на страницу с каталогом после закрытия модального окна об успешном оформлении заказа
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Добавить любой товар в корзину
+    3. Нажать кнопку "Cart"
+    4. Нажать кнопку "Checkout" в корзине
+    5. Нажать кнопку "Close"
+  expected-result: |
+    Данные о заказе отправлены на сервер (status 200)
+  actual-result: |
+    Данные о заказе не отправлены на сервер (status 500)
+
+- summary: |
+    На первой странице каталога есть кнопка "Previous"
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+  expected-result: |
+    Кнопки "Previous" нет в начале каталога
+  actual-result: |
+    В начале каталога есть кнопка "Previous"
+
+- summary: |
+    На последней странице каталога есть кнопка "Next"
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажимать кнопку "Next" до тех пор, пока перелистывание не закончится
+  expected-result: |
+    Кнопки "Next" нет в конце каталога
+  actual-result: |
+    В конце каталога есть кнопка "Next"
+
+- summary: |
+    Товары в каталоге перемешиваются
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажимать кнопку "Next" до тех пор, пока перелистывание не закончится
+    3. Нажимать кнопку "Previous" до тех пор, пока перелистывание не закончится
+  expected-result: |
+    Товары остались на своих местах
+  actual-result: |
+    Товары теперь расположены по другому
+
+- summary: |
+    Русскоязычная версия сайта не полностью переведена
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажимать кнопку "Language"
+    3. Выбрать "Russian"
+    4. Выбрать любой товар
+  expected-result: |
+    Все на русском языке
+  actual-result: |
+    Название и описание товара на английском языке
+
+- summary: |
+    На русскоязычной версии сайта ценники указаны в долларах
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажимать кнопку "Language"
+    3. Выбрать "Russian"
+  expected-result: |
+    Ценники в рублях
+  actual-result: |
+    Ценники в долларах
+
+- summary: |
+    Выпадающий список "Category" не закрываются при нажатии на пустую область сайте
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажимать кнопку "Category"
+    3. Нажать на пустую область на сайте
+  expected-result: |
+    Выпадающий список закрылся
+  actual-result: |
+    Выпадающий список не закрылся
+
+- summary: |
+    Выпадающий список "Language" не закрываются при нажатии на пустую область сайте
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажимать кнопку "Language"
+    3. Нажать на пустую область на сайте
+  expected-result: |
+    Выпадающий список закрылся
+  actual-result: |
+    Выпадающий список не закрылся
+
+- summary: |
+    Сайт не адаптивный (прилагается screen1.png, screen2.png, screen3.png и screen4.png)
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти по ссылке https://hexlet-products-store.vercel.app/
+    2. Перейти в Responsive Design Mode в DevTools
+    3. Выбрать следующие параметры = ширина - 375, высота - 812, DPR - 3
+  expected-result: |
+    Сайт адаптивный
+  actual-result: |
+    Элементы плохо расположены и некоторые из них выезжают за экран
+
+- summary: |
+    В каталоге не указан рейтинг у товаров и есть лишняя информация - описания о товарах
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+  expected-result: |
+    Выводится следующая ифнормация о товарах - названия товаров, кол-во в наличии, рейтинг, стоимость за единицу товара без скидки и со скидкой, и больше ничего лишнего
+  actual-result: |
+    Не указан рейтинг у товаров
+    Зачем-то выводятся описания товаров
+
+- summary: |
+    В каталоге не указан рейтинг у товаров и есть лишняя информация - описания о товарах
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Выбрать любой товар
+  expected-result: |
+    Выводится следующая информация о товарах - названия товаров, кол-во в наличии, рейтинг, стоимость за единицу товара без скидки и со скидкой, и больше ничего лишнего
+  actual-result: |
+    Не указан рейтинг у товаров
+    Зачем-то выводятся описания товаров
+
+- summary: |
+    В корзине не указана цена за единицу товара со скидкой, а так же есть путаница по количествам
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Выбрать любой товар
+  expected-result: |
+    Выводится следующая информация о товарах - названия товаров, выбранное кол-во, стоимость за единицу товара, а так же общая стоимость товара
+  actual-result: |
+    Не указана стоимость за единицу
+    Зачем-то выводится кол-во в наличии, а выбранное кол-во указано неявно (где и что?)
+
+- summary: |
+    Не отображается флаг для русского языка в выпадающем списке языков
+  environment: |
+    Firefox 131.0.3 (aarch64)
+    MacOS 14.7 (23H124)
+  steps-to-reproduce: |
+    1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажимать кнопку "Language"
+  expected-result: |
+    Для всех языков отображаются флаги
+  actual-result: |
+    У русского языка нет флага
