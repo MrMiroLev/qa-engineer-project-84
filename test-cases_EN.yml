@@ -1,27 +1,25 @@
 ---
 - summary: |
-    Successful finding of a product by keyword on the page where it is present
+    Verify keyword search functionality on the current catalog page.
   requirement: |
-    When entering a keyword, all products whose names contain this keyword should be displayed
+    After entering a keyword, all products on the current page with that keyword in their name should appear.
   prerequisites: |
-    The catalog page where the desired product is located is open.
-    Remember any keyword that belongs to one of the products on the current page.
+    User is on the catalog page that has a desired product.
   steps:
-    - Enter the keyword in the search field
+    - Enter the keyword in the search field.
   expected-result: |
-    All products whose names contain the keyword are displayed
+    All products whose names contain the keyword should appear.
 
 - summary: |
-    Successful finding of a product by keyword throughout the entire catalog
+    Verify keyword search functionality across the entire catalog.
   requirement: |
-    When entering a keyword, the products from the entire catalog containing this keyword should be displayed
+    After entering a keyword, products from the entire catalog (not just the current page) that have the keyword in their name should appear.
   prerequisites: |
-    The catalog page where the product with the keyword is not located is open, but the product exists on another page.
-    Remember any keyword that belongs to a product on a neighboring page.
+    User is on the catalog page where the product with the keyword is not present, but it exists on another page.
   steps:
-    - Enter the keyword in the search field
+    - Enter the keyword in the search field.
   expected-result: |
-    All products whose names contain the keyword are displayed
+    All products from the catalog with the keyword in their name should appear.
 
 - summary: |
     Searching for a non-existent product in the catalog by keyword
