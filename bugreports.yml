@@ -236,10 +236,11 @@
     MacOS 14.7 (23H124)
   steps-to-reproduce: |
     1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
+    2. Нажать кнопку "Previous"
   expected-result: |
     Кнопки "Previous" нет в начале каталога
   actual-result: |
-    В начале каталога есть кнопка "Previous"
+    В начале каталога есть кнопка "Previous", которая никуда не ведет
 
 - summary: |
     На последней странице каталога есть кнопка "Next"
@@ -252,7 +253,7 @@
   expected-result: |
     Кнопки "Next" нет в конце каталога
   actual-result: |
-    В конце каталога есть кнопка "Next"
+    В конце каталога есть кнопка "Next", которая никуда не ведет
 
 - summary: |
     Товары в каталоге перемешиваются
