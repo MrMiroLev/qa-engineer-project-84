@@ -26,7 +26,7 @@ test-cases:
   
   - summary: |
       Успешное отображение полного списка множественного выбора производителей товаров магазина
-    status: false
+    status: fail
   
   - summary: |
       Корректная работа фильтра по множественному выбору производителей
@@ -34,107 +34,107 @@ test-cases:
   
   - summary: |
       Корректно работает чекбокс о наличии товаров
-    status: false
+    status: fail
   
   - summary: |
       Успешная фильтрация товаров по диапазону цен
     status: false
   
   - summary: |
-      Неуспешная фильтрация товаров по отрицательным значениям в ценовом диапазоне
-    status: 
+      Невозможный ввод отрицательных значений в полях ценового диапазона
+    status: fail
   
   - summary: |
-      Неуспешная фильтрация товаров по нечисловым значениям в ценовом диапазоне
-    status: 
+      Невозможный ввод нечисловых значений в полях ценового диапазона
+    status: fail
   
   - summary: |
-      Приложение не позволяет вводить числовые значения с более чем 2 знаками после запятой (decimal places)
-    status: 
+      Невозможный ввод нечисловых значений с более чем 2 знаками после точки
+    status: fail
   
   - summary: |
       Успешная фильтрация по нескольким параметрам
-    status: 
+    status: pass
   
   - summary: |
       Рабочая кнопка для перехода в корзину
-    status: 
+    status: pass
   
   - summary: |
       Рабочая кнопка для перехода в каталог товаров
-    status: 
+    status: pass
   
   - summary: |
       Рабочая кнопка "Hexlet Store"
-    status: 
+    status: pass
   
   - summary: |
       Успешное добавление товара в корзину на странице каталога
-    status: 
+    status: pass
   
   - summary: |
       Успешное добавление товара в корзину на странице о товаре
-    status: 
+    status: pass
   
   - summary: |
       Неуспешное добавление товара в корзину, которого нет в наличии, на странице каталога
-    status: 
+    status: pass
   
   - summary: |
       Неуспешное добавление товара в корзину, которого нет в наличии, на странице о товаре
-    status: 
+    status: fail
   
   - summary: |
       Успешное добавление нескольких товаров в корзину
-    status: 
+    status: pass
   
   - summary: |
       Успешное увеличение количества товара в корзине
-    status: 
+    status: pass
   
   - summary: |
       Успешное удаление единственного товара из корзины
-    status: 
+    status: pass
   
   - summary: |
       Успешное удаление товара из корзины, в котором есть несколько товаров
-    status: 
+    status: pass
   
   - summary: |
       Успешное уменьшение количества товара в корзине
-    status: 
+    status: pass
   
   - summary: |
       Успешная очистка корзины
-    status: 
+    status: pass
   
   - summary: |
       Успешный переход из корзины в каталог
-    status: 
+    status: pass
   
   - summary: |
       Возможность просмотра подробной информации о добавленном товаре через страницу корзины
-    status: 
+    status: pass
   
   - summary: |
       Корзина хранится в сессии браузера
-    status: 
+    status: pass
   
   - summary: |
       Успешное оформление заказа
-    status: 
+    status: fail
   
   - summary: |
       Успешная очистка корзины после оформления заказа
-    status: 
+    status: fail
   
   - summary: |
       Успешный переход на страницу с каталогом товаров после закрытия уведомления / окна об успешном оформлении заказа
-    status: 
+    status: fail
   
   - summary: |
       Успешное пролистывание каталога
-    status: 
+    status: pass
   
   - summary: |
       На первой странице каталога нету кнопки для пролистывания назад
@@ -274,7 +274,7 @@ bugreports:
       Выводится список множественного выбора производителей каталога только текущей страницы
 
   - summary: |
-      Ничего не происходит при снятии галочки чекбокса "In Stock" (отображается полный каталог товаров)
+      Ничего не происходит при снятии галочки чекбокса "In Stock"
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
@@ -284,10 +284,10 @@ bugreports:
     expected-result: |
       Выводится сообщение о том, что ничего не найдено, или товары, которых нет в наличии
     actual-result: |
-      Ничего не происходит
+      Ничего не происходит (продолжает отображаться полный каталог товаров)
 
   - summary: |
-      Фильтрация товаров по диапазону цен работает неправильно и ломается верстка
+      Фильтрация товаров по диапазону цен работает неправильно
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
@@ -298,4 +298,194 @@ bugreports:
     expected-result: |
       Выводится товар "Green Chili Pepper"
     actual-result: |
+      Ничего не происходит (продолжает отображаться полный каталог товаров)
+
+    
+  - summary: |
+      Ломается верстка при вводе цены (прилагается screen5.png)
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Ввести 1 в правое поле Price
+    expected-result: |
+      Элементы интерфейса отображаются корректно
+    actual-result: |
+      Ломается верстка
+
+  - summary: |
+      В поля Price можно вводить отрицательные числа
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Ввести -100 в левое поле Price
+      3. Ввести -1 в правое поле Price
+    expected-result: |
       Ничего не происходит
+    actual-result: |
+      В поля Price введены отрицательные числа
+
+  - summary: |
+      В поля Price можно вводить нечисловые значения
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Ввести "abc" в левое поле Price
+      3. Ввести "DEF#! в правое поле Price
+    expected-result: |
+      Ничего не происходит
+    actual-result: |
+      В поля Price введены нечисловые значения
+
+  - summary: |
+      В поля price можно вводить числовые значения с более чем 2 знаками после точки
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Ввести 0.011 в левое поле Price
+      3. Ввести 0.999 в правое поле Price
+    expected-result: |
+      В левом поле Price значение 0.01, а в правом - 0.99
+    actual-result: |
+      В левом поле Price значение 0.011, а в правом - 0.999
+
+  - summary: |
+      Вместо вывода уведомления, о том, что ничего не найдено в каталоге, при применении фильтров, продолжает отображаться полный каталог товаров
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Ввести 0.1 в правое поле Price
+    expected-result: |
+      Выводится уведомление, о том, что ничего не найдено
+    actual-result: |
+      Продолжает отображаться полный каталог товаров
+
+  - summary: |
+      Перезагружается сайт при нажатии кнопки "Cart"
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Нажать кнопку "Cart"
+    expected-result: |
+      Сайт не перезагружается
+    actual-result: |
+      Сайт перезагружается
+
+  - summary: |
+      Можно добавить товар в корзину, которого нет в наличии, на странице о товаре
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти по ссылке https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Нажать кнопку "Next"
+      3. Снять галочку у "In Stock"
+      4. Выбрать "Lemon" или "Bamboo Spatula"
+      5. Нажать кнопку "Add to cart"
+      6. Нажать кнопку "Cart"
+    expected-result: |
+      Товар не был добавлен
+    actual-result: |
+      Товар в корзине
+
+  - summary: |
+      Данные о заказе не отправляются на сервер (status 500)
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Добавить любой товар в корзину
+      3. Нажать кнопку "Cart"
+      4. Открыть вкладку Network в DevTools
+      5. Нажать кнопку "Checkout" в корзине
+    expected-result: |
+      Данные о заказе отправлены на сервер (status 200)
+    actual-result: |
+      Данные о заказе не отправлены на сервер (status 500)
+
+  - summary: |
+      Корзина не становится пустой после оформления заказа
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Добавить любой товар в корзину
+      3. Нажать кнопку "Cart"
+      4. Нажать кнопку "Checkout" в корзине
+    expected-result: |
+      Корзина стала пустой
+    actual-result: |
+      Корзина не опустела
+
+  - summary: |
+      Не происходит перехода на страницу с каталогом после закрытия модального окна об успешном оформлении заказа
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Добавить любой товар в корзину
+      3. Нажать кнопку "Cart"
+      4. Нажать кнопку "Checkout" в корзине
+      5. Нажать кнопку "Close"
+    expected-result: |
+      Происходит переход на страницу каталога
+    actual-result: |
+      Просто закрывается модальное окно и пользователь остается в корзине
+
+  - summary: |
+      Не работает кнопка закрытия (крестик) у модального окна, который появляется после оформления заказа
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Добавить любой товар в корзину
+      3. Нажать кнопку "Cart"
+      4. Нажать кнопку "Checkout" в корзине
+      5. Нажать крестик в правом верхнем углу
+    expected-result: |
+      Закрывается окно
+    actual-result: |
+      Ничего не происходит
+
+  - summary: |
+      В модальном окне, которое оповещает об успешном оформлении заказа, две разные кнопки для закрытия
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Добавить любой товар в корзину
+      3. Нажать кнопку "Cart"
+      4. Нажать кнопку "Checkout" в корзине
+    expected-result: |
+      Должна быть только одна кнопка для закрытия модального окна
+    actual-result: |
+      Есть две разные кнопки для закрытия модального окна
+
+  - summary: |
+      Кнопка "Next" пропадает через очень короткое время после нажатия на нее один раз
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Нажать кнопку "Next"
+    expected-result: |
+      Есть возможность пролистывания дальше
+    actual-result: |
+      Возможности пролистывания дальше нету
