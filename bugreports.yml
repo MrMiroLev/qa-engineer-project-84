@@ -317,7 +317,7 @@
     MacOS 14.7 (23H124)
   steps-to-reproduce: |
     1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
-    2. Нажимать кнопку "Category"
+    2. Нажать кнопку "Category"
     3. Нажать на пустую область на сайте
   expected-result: |
     Выпадающий список закрылся
@@ -331,7 +331,7 @@
     MacOS 14.7 (23H124)
   steps-to-reproduce: |
     1. Зайти на страницу каталога https://hexlet-products-store.vercel.app/
-    2. Нажимать кнопку "Language"
+    2. Нажать кнопку "Language"
     3. Нажать на пустую область на сайте
   expected-result: |
     Выпадающий список закрылся
