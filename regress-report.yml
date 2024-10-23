@@ -170,15 +170,15 @@ test-cases:
     
   - summary: |
       В карточках товаров в каталоге отображается только необходимая информация
-    status: 
+    status: fail
   
   - summary: |
       Отображается вся информация о товаре на странице его описания
-    status: 
+    status: pass
   
   - summary: |
       Отображается необходимая информация о товарах в корзине
-    status: 
+    status: fail
 
 bugreports:
   - summary: |
