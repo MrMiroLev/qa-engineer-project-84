@@ -304,20 +304,6 @@
     Описание товара на английском языке
 
 - summary: |
-    На русскоязычной версии сайта ценники указаны в долларах
-  environment: |
-    Firefox 131.0.3 (aarch64)
-    MacOS 14.7 (23H124)
-  steps-to-reproduce: |
-    1. Открыть магазин - https://hexlet-products-store.vercel.app/
-    2. Нажимать кнопку "Language"
-    3. Выбрать "Russian"
-  expected-result: |
-    Ценники в рублях
-  actual-result: |
-    Ценники в долларах
-
-- summary: |
     В каталоге товаров выпадающий список категорий не закрывается при нажатии на любую область за его пределами
   environment: |
     Firefox 131.0.3 (aarch64)
