@@ -195,7 +195,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Ввести "non-existent-product123#" в поисковое поле
     expected-result: |
       Выводится сообщение о том, что ничего не найдено
@@ -208,7 +208,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Ввести в поисковое поле любое ключевое слово, которое есть в наименованиях товаров на других страницах, но нету на текущей странице каталога
     expected-result: |
       Выводятся товары со всего каталога, в наименованиях которых есть искомое слово
@@ -216,19 +216,18 @@ bugreports:
       Выводится полный каталог товаров
 
   - summary: |
-      Фильтр по категориям не выводит полный список категорий каталога
+      Отображаются только категории товаров текущей страницы вместо всего каталога
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажать кнопку "Category"
       3. Нажать кнопку "Next"
-      4. Нажать кнопку "Category"
     expected-result: |
-      В выпадающем списке выводится полный список категорий товаров на любой странице каталога
+      В фильтре категорий должны отображаться все категории товаров, представленные в каталоге, независимо от текущей страницы
     actual-result: |
-      В выпадающем списке выводится список категорий только текущей страницы
+      Отображаются только категории товаров текущей страницы, что ограничивает пользователя в фильтрации товаров по всему каталогу
 
   - summary: |
       Кнопка для пролистывания исчезает при применении фильтра по категории
@@ -236,7 +235,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажать кнопку "Category"
       3. Выбрать любую категорию
     expected-result: |
@@ -245,17 +244,19 @@ bugreports:
       Исчезает кнопка для пролистывания каталога
 
   - summary: |
-      Фильтр по производителям не выводит полный список производителей каталога
+      В фильтре каталога товаров отображаются бренды только тех товаров, которые представлены на текущей странице, а не всех брендов каталога
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
-      2. Нажать кнопку "Next"
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Обратить внимание на список брендов в фильтре
+      3. Сравнить список брендов на каждой странице
     expected-result: |
-      Выводится полный список множественного выбора производителей каталога
+      В фильтре брендов должны отображаться все бренды, представленные в каталоге, вне зависимости от текущей страницы
     actual-result: |
-      Выводится список множественного выбора производителей каталога только текущей страницы
+      В фильтре брендов отображаются только бренды товаров, которые показаны на текущей странице,
+      что ограничивает пользователя в выборе брендов для фильтрации.
 
   - summary: |
       Ничего не происходит при снятии галочки чекбокса "In Stock"
@@ -263,7 +264,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Снять галочку с чекбокса "In Stock"
     expected-result: |
       Выводится сообщение о том, что ничего не найдено, или товары, которых нет в наличии
@@ -276,7 +277,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Ввести 0.80 в левое поле Price
       3. Ввести 0.82 в правое поле Price
     expected-result: |
@@ -290,7 +291,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Ввести 1 в правое поле Price
     expected-result: |
       Элементы интерфейса отображаются корректно
@@ -303,7 +304,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Ввести -100 в левое поле Price
       3. Ввести -1 в правое поле Price
     expected-result: |
@@ -317,7 +318,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Ввести "abc" в левое поле Price
       3. Ввести "DEF#! в правое поле Price
     expected-result: |
@@ -331,7 +332,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Ввести 0.011 в левое поле Price
       3. Ввести 0.999 в правое поле Price
     expected-result: |
@@ -345,7 +346,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Ввести 0.1 в правое поле Price
     expected-result: |
       Выводится уведомление, о том, что ничего не найдено
@@ -358,7 +359,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажать кнопку "Cart"
     expected-result: |
       Сайт не перезагружается, так как он является SPA
@@ -367,99 +368,102 @@ bugreports:
       Язык сайта сбрасывается на английский, если он был на русском
 
   - summary: |
-      Можно добавить товар в корзину, которого нет в наличии, на странице о товаре
+      На странице товара можно добавить в корзину товар, которого нет в наличии
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти по ссылке https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажать кнопку "Next"
       3. Снять галочку у "In Stock"
-      4. Выбрать "Lemon" или "Bamboo Spatula"
+      4. Нажать на карточку "Lemon" или "Bamboo Spatula"
       5. Нажать кнопку "Add to cart"
       6. Нажать кнопку "Cart"
     expected-result: |
-      Товар не был добавлен
+      Пользователю не должна предоставляться возможность добавлять в корзину товар с количеством "0".
+      Кнопка "Add to cart" должна быть заблокирована или недоступна.
     actual-result: |
-      Товар в корзине
+      Товар с количеством "0" успешно добавляется в корзину.
 
   - summary: |
-      Данные о заказе не отправляются на сервер (status 500)
+      При оформлении заказа данные о заказе не отправляются на сервер (status 500)
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Добавить любой товар в корзину
       3. Нажать кнопку "Cart"
       4. Открыть вкладку Network в DevTools
       5. Нажать кнопку "Checkout" в корзине
     expected-result: |
-      Данные о заказе отправлены на сервер (status 200)
+      Данные о заказе отправлены на сервер (status 200 / 201)
     actual-result: |
       Данные о заказе не отправлены на сервер (status 500)
 
   - summary: |
-      Корзина не становится пустой после оформления заказа
+      После оформления заказа корзина не очищается, и товары, которые были заказаны, остаются в корзине
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Добавить любой товар в корзину
       3. Нажать кнопку "Cart"
       4. Нажать кнопку "Checkout" в корзине
     expected-result: |
-      Корзина стала пустой
+      Корзина должна автоматически очищаться после успешного оформления заказа
     actual-result: |
-      Корзина не опустела
+      После завершения оформления заказа корзина остается заполненной теми же товарами, которые были заказаны
 
   - summary: |
-      Не происходит перехода на страницу с каталогом после закрытия модального окна об успешном оформлении заказа
+      После закрытия модального окна, уведомляющего об успешном оформлении заказа, не происходит автоматического перехода на страницу с каталогом товаров
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Добавить любой товар в корзину
       3. Нажать кнопку "Cart"
       4. Нажать кнопку "Checkout" в корзине
       5. Нажать кнопку "Close"
     expected-result: |
-      Происходит переход на страницу каталога
+      Происходит автоматический переход на страницу с каталогом
     actual-result: |
-      Просто закрывается модальное окно и пользователь остается в корзине
+      Переход на страницу с каталогом не происходит, и пользователь остается на текущей странице,
+      что требует дополнительного действия для возврата к покупкам.
 
   - summary: |
-      Не работает кнопка закрытия (крестик) у модального окна, который появляется после оформления заказа
+      В модальном окне, уведомляющем об успешном оформлении заказа, не работает кнопка закрытия (крестик) в правом верхнем углу
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Добавить любой товар в корзину
       3. Нажать кнопку "Cart"
       4. Нажать кнопку "Checkout" в корзине
-      5. Нажать крестик в правом верхнем углу
+      5. Нажать на крестик в правом верхнем углу
     expected-result: |
       Закрывается окно
     actual-result: |
-      Ничего не происходит
+      Кнопка закрытия (крестик) не работает, и окно не закрывается при нажатии на нее.
+      Пользователь может закрыть окно только через кнопку "Close".
 
   - summary: |
-      В модальном окне, которое оповещает об успешном оформлении заказа, две разные кнопки для закрытия
+      В модальном окне, уведомляющем об успешном оформлении заказа, присутствуют две кнопки для закрытия окна
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Добавить любой товар в корзину
       3. Нажать кнопку "Cart"
       4. Нажать кнопку "Checkout" в корзине
     expected-result: |
-      Должна быть только одна кнопка для закрытия модального окна
+      В модальном окне должна быть одна кнопка для закрытия, чтобы не вызывать путаницу у пользователя
     actual-result: |
-      Есть две разные кнопки для закрытия модального окна
+      В окне присутствуют две разные кнопки для закрытия: крестик в правом верхнем углу и кнопка "Close" внизу окна, что может сбивать с толку пользователя
 
   - summary: |
       Кнопка для пролистывания ("Next") неожиданно пропадает через очень короткое время после первого нажатия
@@ -467,7 +471,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажать кнопку "Next"
     expected-result: |
       Есть возможность пролистывания дальше
@@ -480,7 +484,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Открыть сайт по ссылке https://products-store-git-v2bugfixes-hexlet-components.vercel.app/wrongpage
+      1. Открыть магазин по следующей ссылке - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/wrongpage
     expected-result: |
       Выводится сообщение о несуществующей странице и код 404
     actual-result: |
@@ -492,7 +496,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажимать кнопку "Language"
       3. Выбрать "Russian"
       4. Выбрать любой товар
@@ -507,7 +511,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажимать кнопку "Language"
       3. Выбрать "Russian"
     expected-result: |
@@ -516,45 +520,58 @@ bugreports:
       Ценники в долларах
 
   - summary: |
-      Выпадающий список "Category" не закрываются при нажатии на пустую область сайта
+      В каталоге товаров выпадающий список категорий не закрывается при нажатии на любую область за его пределами
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажать кнопку "Category"
-      3. Нажать на пустую область на сайте
+      3. Попробовать кликнуть на любую область за пределами выпадающего списка
     expected-result: |
       Выпадающий список закрылся
     actual-result: |
       Выпадающий список не закрылся
   
   - summary: |
-      Выпадающий список "Language" не закрываются при нажатии на пустую область сайта
+      Выпадающий список языков не закрывается при нажатии на любую область за его пределами
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Нажать кнопку "Language"
-      3. Нажать на пустую область на сайте
+      3. Попробовать кликнуть на любую область за пределами выпадающего списка
     expected-result: |
       Выпадающий список закрылся
     actual-result: |
       Выпадающий список не закрылся
 
   - summary: |
-      В каталоге не указан рейтинг у товаров и есть лишняя информация - описания о товарах
+      В карточке товара в каталоге отсутствует важная информация
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
     expected-result: |
-      Выводится следующая ифнормация о товарах - названия товаров, кол-во в наличии, рейтинг, стоимость за единицу товара без скидки и со скидкой, и больше ничего лишнего
+      В карточке должно быть только название товара, кол-во в наличии, рейтинг, цена без скидки и со скидкой.
+      Никакой лишней информации.
     actual-result: |
-      Не указан рейтинг у товаров
-      Зачем-то выводятся описания товаров
+      Не указан рейтинг товара и количество товара в наличии без обозначения "qty"
+
+  - summary: |
+      Лишняя информация в карточке товара
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+    expected-result: |
+      В карточке должно быть только название товара, кол-во в наличии, рейтинг, цена без скидки и со скидкой.
+      Никакой лишней информации.
+    actual-result: |
+      В карточке товара отображается описание товара, которое там не нужно
 
   - summary: |
       На странице товара в галерее выбранное изображение выводится в неувеличенном размере
@@ -562,7 +579,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Выбрать любой товар, у которого есть минимум 2 изображения
     expected-result: |
       Выбранное изображение в галерее выводится в увеличенном размере для детального просмотра
@@ -570,19 +587,33 @@ bugreports:
       Выбранное изображение в галерее выводится, но не увеличивается, что затрудняет детальный просмотр товара
 
   - summary: |
-      В корзине не указана цена за единицу товара со скидкой, а так же есть путаница по количеству выбранного товара
+      В корзине указана цена за единицу товара без скидки, но нет цены со скидкой
     environment: |
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Добавить любой товар в корзину нажав кнопку "Add to cart" на любой карточке товара
       3. Нажать кнопку "Cart"
     expected-result: |
-      Выводится следующая информация о товарах - названия товаров, выбранное кол-во, стоимость за единицу товара со скидкой, а так же общая стоимость товара
+      Должна быть указана цена за единицу товара со скидкой рядом с исходной ценой без скидки
     actual-result: |
-      Не указана стоимость за единицу товара со скидкой, но указана без скидки
-      Отображается ненужная информация по кол-ву доступного на складе товара, а выбранное кол-во пользователем указано неявно
+      Отображается только цена без скидки
+
+  - summary: |
+      В корзине возникает путаница с отображением количества выбранного товара
+    environment: |
+      Firefox 131.0.3 (aarch64)
+      MacOS 14.7 (23H124)
+    steps-to-reproduce: |
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      2. Добавить любой товар в корзину нажав кнопку "Add to cart" на любой карточке товара
+      3. Нажать кнопку "Cart"
+    expected-result: |
+      В корзине должно быть четко указано только количество, выбранное пользователем, без путаницы с доступным на складе количеством
+    actual-result: |
+      Отображается два значения: общее количество товара и количество, выбранное для покупки.
+      Количество выбранного товара указано неявно.
 
   - summary: |
       В каталоге товаров кликабельным является только изображение товара, а не вся карточка
@@ -590,7 +621,7 @@ bugreports:
       Firefox 131.0.3 (aarch64)
       MacOS 14.7 (23H124)
     steps-to-reproduce: |
-      1. Зайти на страницу каталога https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
+      1. Открыть магазин - https://products-store-git-v2bugfixes-hexlet-components.vercel.app/
       2. Попробовать навести курсор на разные области карточки товара (например, текст, цену, кнопку)
       3. Обратить внимание, что клик возможен только по изображению товара
     expected-result: |
