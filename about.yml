@@ -1,15 +1,14 @@
 ---
 name: Lev Kuzmin
 job: QA Engineer
-level: junior
+level: intern/junior
 email: levbaladev@gmail.com
 description: |
-  Here is a short description about me
-  
-  P.S. I'll do it later lol
+  Живу в Индии с 2015 года. Есть год опыта работы эникейщиком.
 skills:
-  - Functional testing
-  - Bug reporting
-  - Linux
-  - Touch typing
-  - English B2
+  - Написание тест-кейсов
+  - Написание багрепортов
+  - Регрессионное тестирование
+  - Linux и bash
+  - Слепая печать
+  - Английский язык B2
